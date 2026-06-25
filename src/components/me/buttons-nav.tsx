@@ -10,6 +10,7 @@ import {
     InstagramLogoIcon,
 } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
+import { Download } from "lucide-react";
 import { SiGitlab } from "react-icons/si";
 
 import { Button } from "@/components/ui/button";
@@ -19,6 +20,7 @@ import {
     DropdownMenuContent,
     DropdownMenuGroup,
     DropdownMenuItem,
+    DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
@@ -109,6 +111,16 @@ export default function ButtonsNav() {
                             </Link>
                         </DropdownMenuItem>
                     </DropdownMenuGroup>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem className="flex flex-row gap-2 ">
+                        <a
+                            href="/jose-fonte-cv.pdf"
+                            download
+                            className="flex flex-row gap-4 items-center hover:cursor-pointer"
+                        >
+                            Download CV <Download className="w-4" />
+                        </a>
+                    </DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>
 
