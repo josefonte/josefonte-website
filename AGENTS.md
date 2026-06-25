@@ -49,6 +49,10 @@ Run from the repo root. Each target is wrapped in the `Makefile` and routes thro
 | `make test` | Bun test runner (no tests yet) |
 | `make clean` | Remove `.next` and `node_modules` |
 
+## Design
+
+@.agents/design.md
+
 ## Project memory
 
 @.agents/memory.md
