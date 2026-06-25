@@ -1,6 +1,6 @@
-# josefonte.pt
+# josefonte-website
 
-My personal website — a CV / portfolio for José Fonte ([josefonte.pt](https://josefonte.pt)).
+My personal website — a CV / portfolio for José Fonte ([josefonte.xyz](https://josefonte.xyz)).
 A small Next.js site presenting who I am: work, education, projects, photos, and a blog.
 
 ## Repo map
