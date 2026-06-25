@@ -13,7 +13,7 @@ import {
     Camera,
 } from "lucide-react";
 
-const allTabs = [
+export const allTabs = [
     {
         id: "about",
         name: "About",

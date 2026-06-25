@@ -5,6 +5,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
 import ButtonsNav from "@/components/me/buttons-nav";
+import MobileNav from "@/components/me/mobile-nav";
 import Navbar from "@/components/me/navbar";
 import ProfileInfo from "@/components/me/nav-ProfileInfo";
 
@@ -33,12 +34,17 @@ export default function RootLayout({
 
                     <div className="flex-col ">
                         <div className=" flex justify-end  ">
-                            <ButtonsNav />
+                            <div className="hidden md:block">
+                                <ButtonsNav />
+                            </div>
+                            <div className="md:hidden">
+                                <MobileNav />
+                            </div>
                         </div>
                         <div className="lg:mx-[25%] mb-10 ">
                             <ProfileInfo />
                         </div>
-                        <div className="mx-[10%] md:mx-[15%] lg:mx-[20%] mt-3">
+                        <div className="mx-[10%] md:mx-[15%] lg:mx-[20%] mt-3 hidden md:block">
                             <Navbar />
                         </div>
                     </div>
