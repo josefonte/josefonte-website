@@ -1,5 +1,4 @@
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
-import { GitlabIcon } from "lucide-react";
 
 import { ReactElement } from "react";
 

@@ -17,7 +17,7 @@ import Link from "next/link";
 import { ReactElement } from "react";
 
 interface ProjectsCardProps extends ProjectsCardType {
-    customFields?: JSX.Element;
+    customFields?: ReactElement;
 }
 
 function titleElement(

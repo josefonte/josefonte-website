@@ -13,7 +13,8 @@ import {
     EnvelopeClosedIcon,
 } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
-import { AtSignIcon, Gitlab, SendHorizontal, X } from "lucide-react";
+import { AtSignIcon, SendHorizontal, X } from "lucide-react";
+import { SiGitlab } from "react-icons/si";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -96,7 +97,7 @@ export default function ButtonsNav() {
 
                         <DropdownMenuItem className="group flex flex-row gap-2 min-w-40 justify-between hover:cursor-pointer">
                             <div className="flex flex-row gap-3 items-center ">
-                                <Gitlab className="w-4" /> GitLab
+                                <SiGitlab className="w-4" /> GitLab
                             </div>
                             <div className=" transition duration-300 group-hover:rotate-45 group-hover:cursor-pointer">
                                 <ArrowTopRightIcon />

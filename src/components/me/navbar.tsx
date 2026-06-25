@@ -155,7 +155,9 @@ export default function Navbar() {
                         passHref
                     >
                         <button
-                            ref={(el) => (tabsRef.current[index] = el)}
+                            ref={(el) => {
+                                tabsRef.current[index] = el;
+                            }}
                             className={`${
                                 isActive
                                     ? ` font-medium`

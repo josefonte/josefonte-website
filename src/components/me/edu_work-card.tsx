@@ -9,6 +9,8 @@ import {
 
 import { Badge } from "@/components/ui/badge";
 
+import { ReactElement } from "react";
+
 interface CardProps {
     title: string;
     subtitle: string;
@@ -16,7 +18,7 @@ interface CardProps {
     badges?: string[];
     date: string;
     location?: string;
-    customFields?: JSX.Element;
+    customFields?: ReactElement;
 }
 
 export default function EduWorkCard({
