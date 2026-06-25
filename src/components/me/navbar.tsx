@@ -151,23 +151,16 @@ export default function Navbar() {
                     <Link
                         key={index}
                         href={tab.id === "about" ? "/" : "/" + tab.id}
-                        legacyBehavior
-                        passHref
+                        ref={(el) => {
+                            tabsRef.current[index] = el;
+                        }}
+                        className={`${
+                            isActive ? ` font-medium` : `hover:text-gray-600`
+                        }  flex flex-row justify-between gap-0.5 items-center  my-auto cursor-pointer select-none rounded-md px-4 font-base `}
+                        onClick={() => setActiveTabIndex(index)}
                     >
-                        <button
-                            ref={(el) => {
-                                tabsRef.current[index] = el;
-                            }}
-                            className={`${
-                                isActive
-                                    ? ` font-medium`
-                                    : `hover:text-gray-600`
-                            }  flex flex-row justify-between gap-0.5 items-center  my-auto cursor-pointer select-none rounded-md px-4 font-base `}
-                            onClick={() => setActiveTabIndex(index)}
-                        >
-                            {isActive ? tab.icon_bold : tab.icon_light}
-                            {tab.name}
-                        </button>
+                        {isActive ? tab.icon_bold : tab.icon_light}
+                        {tab.name}
                     </Link>
                 );
             })}
