@@ -21,24 +21,24 @@ export default function ProfileInfo() {
                     José Fonte
                 </div>
                 <div className="flex flex-col  justify-center  gap-2  text-center flex-wrap items-center">
-                    <div> MSc in Software Engineering Student</div>
+                    <div> AI/ML Engineer</div>
                     <div className="flex flex-row gap-2 items-center">
                         <div className="flex flex-row gap-1 items-center">
                             <div className=" italic ">@</div>
                             <Link
-                                className="italic hover:underline horver:cursor-pointer "
-                                href="https://www.uminho.pt/PT"
+                                className="italic hover:underline hover:cursor-pointer "
+                                href="https://www.linkedin.com/company/promptlyhealth/"
                                 target="_blank"
                             >
-                                Universidade do Minho
+                                Promptly Health
                             </Link>
                         </div>
                         <Image
-                            src="/assets/uminho.png"
+                            src="/assets/promptly.jpeg"
                             className="inline-block h-4 w-4 rounded"
                             width={50}
                             height={50}
-                            alt="Universidade do Minho Logo"
+                            alt="Promptly Health Logo"
                         />
                     </div>
                 </div>

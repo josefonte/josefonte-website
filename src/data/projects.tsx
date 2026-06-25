@@ -17,7 +17,7 @@ const data: ProjectsCardType[] = [
     {
         title: "University Projects",
         description:
-            "All the projects I've done during my BSc and MSc in Software Enginnering at the Universidade do Minho.",
+            "All the projects I've done during my BSc and MSc in Software Engineering at the Universidade do Minho.",
         active: false,
         href: "",
         icon: <GitHubLogoIcon className="h-5 w-5 hover:scale-110 " />,

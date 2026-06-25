@@ -3,35 +3,6 @@ import EduWorkCard from "@/components/me/edu_work-card";
 const workData: WorkDataType[] = WorkData;
 const volWorkData: WorkDataType[] = VolWorkData;
 
-function CustomFields(props: { index: number }) {
-    const { index } = props;
-
-    const coursesData = ["", "", ""];
-
-    const skills = ["", "", ""];
-    return (
-        <>
-            {coursesData[index] !== "" ? (
-                <div>
-                    <div className="inline-block font-medium mr-1">
-                        Relevant Courses :
-                    </div>
-                    {coursesData[index]}
-                </div>
-            ) : null}
-
-            {skills[index] !== "" ? (
-                <div>
-                    <div className="inline-block font-medium mr-1">
-                        Skills :
-                    </div>
-                    {skills[index]}
-                </div>
-            ) : null}
-        </>
-    );
-}
-
 export default function Work() {
     return (
         <div>
@@ -44,7 +15,6 @@ export default function Work() {
                     badges={card.badges}
                     date={card.date}
                     location={card.location}
-                    customFields={<CustomFields index={index} />}
                 />
             ))}
             <div className="text-xl font-semibold underline">
@@ -60,7 +30,6 @@ export default function Work() {
                     badges={card.badges}
                     date={card.date}
                     location={card.location}
-                    customFields={<CustomFields index={index} />}
                 />
             ))}
         </div>

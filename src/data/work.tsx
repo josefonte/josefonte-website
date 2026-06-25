@@ -9,10 +9,54 @@ export interface WorkDataType {
 
 const WorkData: WorkDataType[] = [
     {
+        company: "Promptly Health",
+        role: "AI/ML Engineer | Full-Time",
+        description: [    
+          "Working with AI on the medical domain",
+          "Part of a small team working on agents, medical data, post-training models, mlops pipelines.",
+"Leading the development of Explore's Agent Harness.  A platform to explore and build insights on medical databases through Natural Language. Work on Agent Harness, Tool Design, RAG Systems, Evals, Observability/Monitoring.",
+          
+        ],
+        badges: [
+            "Python",
+            "FastAPI",
+            "Agno",
+            "OpenRouter | AWS Bedrock",
+            "Langfuse",
+            "QdrantDB",
+            "OMOP CDM",
+            "PostgreSQL",
+            "Docker",
+        ],
+        date: "Mar 2025 - Present",
+        location: "Porto, Portugal | Remote",
+    },
+    {
+        company: "Promptly Health",
+        role: "AI/ML Engineer | Summer Intern",
+        description: [
+            "Worked as an AI/ML Engineer, solo and with high agency.",
+            "Project: Chat to DB — an agent to interact with medical databases.",
+            "Researched, documented, developed and measured multiple PoCs with different SoTA approaches, and built an MVP with Streamlit.",
+        ],
+        badges: [
+            "Python",
+            "Langchain",
+            "Ollama",
+            "HuggingFace",
+            "ChromaDB",
+            "PostgreSQL",
+            "Docker",
+            "Streamlit",
+        ],
+        date: "Jun - Aug 2024",
+        location: "Porto, Portugal | Remote",
+    },
+    {
         company: "Colégio João Paulo II",
         role: "Assistant Teacher of Robotics",
         description: [
-            "In a weekly robotics class, I teach programming and robotics in a fun and engaging way to kids from the 1st to 8th grade.",
+            "Taught a weekly robotics extracurricular class to kids from the 1st to 9th grade, focused on logical thinking and the basics of computers, electronics and code.",
             "Participated in National/European Robotics Competition with my students.",
             "Helped organize robotics events in the country.",
         ],
@@ -23,7 +67,7 @@ const WorkData: WorkDataType[] = [
             "Scratch",
             "Bot'n Roll",
         ],
-        date: "2020 - Present",
+        date: "Sept 2021 - Jun 2024",
         location: "Braga, Portugal",
     },
     {
@@ -42,7 +86,7 @@ const WorkData: WorkDataType[] = [
             "Atlassian Design System",
             "JIRA",
             "Confluence",
-            "Git/Gitlab",
+            "Git/GitLab",
         ],
         date: "Jun - Sept 2023 ",
         location: "Braga, Portugal",
@@ -72,13 +116,13 @@ const WorkData: WorkDataType[] = [
 const VolWorkData: WorkDataType[] = [
     {
         company: "CESIUM",
-        role: "Member of Department Recreative",
+        role: "Member of Recreational Department",
         description: [
-            "Help organize events for the student community around the department.",
-            "Integrated the Staff of SEI 24.",
+            "Help organize events for the student community around the informatics department.",
+            "Integrated the Staff of SEI 2024 and 2025.",
         ],
         badges: [],
-        date: "Sept 2023 - Present ",
+        date: "2023 - 2024",
         location: "Braga, Portugal",
     },
     {
@@ -86,20 +130,20 @@ const VolWorkData: WorkDataType[] = [
         role: "Mentor",
         description: [
             "Teach kids how to code in a fun and engaging way.",
-            "Teach classes on Scratch and Python.",
+            "Teach classes on Scratch, Python and WebDev.",
         ],
 
-        date: "Sept 2023 - Present ",
+        date: "2023 - 2024",
         location: "Braga, Portugal",
     },
     {
         company: "IEEE Student Branch UMinho",
-        role: "Member of Program Comitee",
+        role: "Member of Program Committee",
         description: [
-            "Help organize workshopts, talks and other events for the academic community.",
-            'Taught a workshop on "Version Control - Git & Github".',
+            "Help organize workshops, talks and other events targeted to the engineering academic community.",
+            "Lead some technical workshops on SW Eng topics (Git/GitHub, Python, etc)",
         ],
-        date: "Sept 2023 - Present ",
+        date: "2023 - 2025",
         location: "Braga, Portugal",
     },
 ];

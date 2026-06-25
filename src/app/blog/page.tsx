@@ -88,6 +88,14 @@ function extractIMG(inputString: string) {
 export default async function Blog() {
     const posts: Posts = await getMediumPosts();
 
+    if (!posts.items?.length) {
+        return (
+            <div className="text-center text-muted-foreground py-16">
+                No articles yet — check back soon.
+            </div>
+        );
+    }
+
     return (
         <div>
             {posts.items.map((post, index) => (
