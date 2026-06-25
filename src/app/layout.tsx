@@ -23,7 +23,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className="min-h-screen font-sans">
+            <body className="min-h-screen font-sans flex flex-col">
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="system"
@@ -49,11 +49,11 @@ export default function RootLayout({
                         </div>
                     </div>
 
-                    <div className="mx-[10%] md:mx-[15%] lg:mx-[20%] mt-3 ">
+                    <div className="mx-[10%] md:mx-[15%] lg:mx-[20%] mt-3 flex-1">
                         {children}
                     </div>
 
-                    <div className="text-sm text-center my-5 inset-x-0 bottom-0 ">
+                    <div className="text-sm text-center my-5">
                         Made with <HeartFilledIcon className="inline-block" />{" "}
                         by{" "}
                         <a
