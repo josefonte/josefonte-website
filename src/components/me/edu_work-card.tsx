@@ -1,3 +1,5 @@
+"use client";
+
 import {
     Card,
     CardContent,
@@ -9,7 +11,9 @@ import {
 
 import { Badge } from "@/components/ui/badge";
 
-import { ReactElement } from "react";
+import { ChevronDownIcon } from "@radix-ui/react-icons";
+
+import { ReactElement, useState } from "react";
 
 interface CardProps {
     title: string;
@@ -30,6 +34,9 @@ export default function EduWorkCard({
     location,
     customFields,
 }: CardProps) {
+    const [expanded, setExpanded] = useState(false);
+    const hasMore = (badges?.length ?? 0) > 0;
+
     return (
         <Card className="my-4 backdrop-blur-sm ">
             <CardHeader className="pb-3">
@@ -54,9 +61,24 @@ export default function EduWorkCard({
                         </li>
                     ))}
                 </ul>
-                {customFields}
+                {expanded && customFields}
+                {hasMore && (
+                    <button
+                        type="button"
+                        onClick={() => setExpanded((prev) => !prev)}
+                        aria-expanded={expanded}
+                        className="mt-2 ml-auto flex flex-row items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                        {expanded ? "Show less" : "Read more"}
+                        <ChevronDownIcon
+                            className={`transition-transform ${
+                                expanded ? "rotate-180" : ""
+                            }`}
+                        />
+                    </button>
+                )}
             </CardContent>
-            {(badges?.length ?? 0) > 0 && (
+            {expanded && (badges?.length ?? 0) > 0 && (
                 <CardFooter className={`flex flex-row flex-wrap pb-4`}>
                     {badges?.map((badge, index) => (
                         <Badge key={index} className="mr-2 mb-2">
