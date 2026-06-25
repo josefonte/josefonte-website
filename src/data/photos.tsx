@@ -21,11 +21,11 @@ export const data = [
     },
     {
         img: "/assets/photos/Summer23/6.jpeg",
-        alt: "Olhos de Àgua, Portugal",
+        alt: "Olhos de Água, Portugal",
     },
     {
         img: "/assets/photos/Summer23/7.jpeg",
-        alt: "Setubal, Portugal",
+        alt: "Setúbal, Portugal",
     },
     {
         img: "/assets/photos/Summer23/8.jpeg",

@@ -9,32 +9,40 @@ export interface EducationDataType {
 
 const data: EducationDataType[] = [
     {
+        institution: "LMU München",
+        course: "MSc in Software Engineering | ERASMUS Exchange",
+        description: [
+            "Exchange Year at one of Germany's top universities, LMU München.",
+            "Courses: Deep Learning and Artificial Intelligence, Machine Learning, Automated Machine Learning, German Language Courses A1.1 · A1.2.",
+            'MSc Thesis: "VLM Training – Unified Internal Rewards in GRPO" supervised by Dr. Yunpu Ma (LMU) and PhD Student Jinhe Bi (LMU/Huawei).',
+        ],
+        date: "Sep 2024 - Aug 2025",
+        location: "Munich, Germany",
+    },
+    {
         institution: "Universidade do Minho",
         course: "MSc in Software Engineering",
         description: [
-            "At the moment, I’m attending my first year in Software Engineering, with my main interests being Distributed Systems, Software Development(Mobile & Web), AI and Product Design.",
+            "My first year of my master's was a combination of some broad courses and then specialization in my main interests: Distributed Systems and Software Development (Mobile & Web).",
         ],
         badges: [
+            "OpenMP, MPI, CUDA",
+            "Jupyter Notebooks, Numpy, Pandas, Scikit-learn, Seaborn, Matplotlib, TensorFlow, Keras",
+            "Ansible, Docker, GCloud, GKE",
             "Golang",
-            "Erlang",
-            "React",
-            "React Native | Expo",
-            "NodeJS",
-            "MongoDB",
-            "Typst & LaTeX",
-            "Jupyter Notebooks | Numpy | Pandas | SKlearn | Seaborn | MatplotLib | TensorFlow | Keras ",
-            "CUDA | OpenMP | MPI",
-            "Ansible | Docker | GCloud | GKE | Kubernetes",
+            "Java Reactive gRPC, ZeroMQ, Erlang, Maelstrom",
+            "Java (Android), React Native",
+            "Documentation (LaTeX, Typst)",
         ],
-        date: "2023 - Present",
+        date: "Sep 2023 - Aug 2025",
         location: "Braga, Portugal",
     },
     {
         institution: "Universidade do Minho",
         course: "BSc in Software Engineering",
         description: [
-            "Finished my BSc in Software Engineering with a 14.5/20 and proceeded to a MSc in Software Engineering in order to deepen my knowledge in Distributed Systems, Software Development & Design and AI, ML & Data Science.",
-            "The Bachelors degree has a project‑based learning approach, so most of the subjects include a project, which made me develop the ability to design, build and test applications in a dynamic, collaborative and high‑pressure environment.",
+            "Finished my BSc in Software Engineering and proceeded to an MSc in Software Engineering in order to deepen my knowledge in Distributed Systems, Software Development & Design and AI, ML & Data Science.",
+            "The Bachelor's degree has a project‑based learning approach, so most of the subjects include a project, which made me develop the ability to design, build and test applications in a dynamic, collaborative and high‑pressure environment.",
         ],
         badges: [
             "Java",
@@ -45,8 +53,6 @@ const data: EducationDataType[] = [
             "Haskell",
             "MatLab",
             "Knime",
-            "Git/Github",
-            "LaTeX",
         ],
         date: "2020 - 2023",
         location: "Braga, Portugal",
@@ -55,9 +61,8 @@ const data: EducationDataType[] = [
         institution: "Universidade do Minho",
         course: "BSc in Mechanical Engineering",
         description: [
-            "Spent one year studying mechanical engineering and decided to change courses to software engineering.",
+            "Spent one year studying Mechanical Engineering and decided to change degrees to Software Engineering.",
         ],
-        badges: ["Python", "AutoCAD", "Fusion 360"],
         date: "2019 - 2020",
         location: "Braga, Portugal",
     },

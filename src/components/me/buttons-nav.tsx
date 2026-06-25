@@ -98,12 +98,12 @@ export default function ButtonsNav() {
 
                         <DropdownMenuItem className=" hover:cursor-pointer">
                             <Link
-                                href=" https://github.com/josefonte"
+                                href="https://github.com/josefonte"
                                 target="_blank"
                                 className="group w-full flex flex-row justify-between items-center"
                             >
                                 <div className="flex flex-row gap-3 items-center ">
-                                    <GitHubLogoIcon /> Github
+                                    <GitHubLogoIcon /> GitHub
                                 </div>
                                 <div className=" transition duration-300 group-hover:rotate-45 group-hover:cursor-pointer">
                                     <ArrowTopRightIcon />

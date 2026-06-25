@@ -32,22 +32,6 @@ export const allTabs = [
     },
 
     {
-        id: "education",
-        name: "Education",
-        icon_light: (
-            <FileText
-                className=" subpixel-antialiased h-3.5 "
-                strokeWidth={2}
-            />
-        ),
-        icon_bold: (
-            <FileText
-                className=" subpixel-antialiased h-3.5 "
-                strokeWidth={2.75}
-            />
-        ),
-    },
-    {
         id: "work",
         name: "Work",
         icon_light: (
@@ -60,6 +44,22 @@ export const allTabs = [
             <Briefcase
                 className=" subpixel-antialiased h-3.5 "
                 strokeWidth={2.5}
+            />
+        ),
+    },
+    {
+        id: "education",
+        name: "Education",
+        icon_light: (
+            <FileText
+                className=" subpixel-antialiased h-3.5 "
+                strokeWidth={2}
+            />
+        ),
+        icon_bold: (
+            <FileText
+                className=" subpixel-antialiased h-3.5 "
+                strokeWidth={2.75}
             />
         ),
     },

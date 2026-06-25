@@ -6,53 +6,45 @@ function CustomFields(props: { index: number }) {
     const { index } = props;
 
     const coursesData = [
-        "High Performance Computing, AI & ML, Cloud Applications and Services, Formal Methods, Software Development, Network Services Engineering",
-        "Functional, Imperative and Object Oriented Programming, Algorithms & Performance, Operating Systems, Distributed Systems, DataBases, Computer Networks & Communications, Compilers & Language Processing, Artificial Intelligence, Machine Learning",
-        "Calculus I and II, Linear Algebra, Material Science I and II, Technical Drawing, 3D Modelling/CAD",
-    ];
-
-    const skills = [
-        "Performance Analysis (Profilling), Optimizations & Parallelized Execution, Data Analysis & Visualization, MicroServices, Restful APIs, Cloud Computing, Security, Scalability, Fault Tolerance, Load Balancing,",
-        "Design Systems, Model & Deploy Data Layers, Different Programming Paradigms, Version Control, Debug, Test & Document",
         "",
+        "High Performance Computing, AI & ML, Cloud Applications and Services, Software Development, Network Services Engineering",
+        "Functional Programming, Imperative Programming, Object Oriented Programming, Algorithms and Complexity, Operating Systems, Distributed Systems, Databases, Computer Networks & Communications, Compilers & Language Parsers, Artificial Intelligence, Machine Learning",
+        "Calculus I, Calculus II, Linear Algebra, Material Science I, Material Science II, Technical Drawing, 3D Modelling/CAD",
     ];
 
     const profiles = {
-        "Distribution Systems Profile":
-            "Paradigms of Distributed Systems | Fault Tolerance | Large Scale Distributed Systems",
+        "Distributed Systems Courses":
+            "Paradigms of Distributed Systems | Large Scale Distributed Systems | Fault Tolerance",
 
-        "Software Engineering Profile":
-            "Mobile Development | SW Analysis, Transformation and Testing | Data Science for SW Engineers",
+        "Software Engineering Courses":
+            "Mobile Software Development | SW Analysis, Transformation and Testing | Data Science for SW Engineers",
     };
     return (
         <>
-            {index == 0 ? (
-                <div>
-                    <div className="inline-block font-medium mr-1 underline">
-                        Distribution Systems Profile
-                    </div>{" "}
-                    : {profiles["Distribution Systems Profile"]}
-                    <div className="inline-block font-medium mr-1 underline">
-                        Software Engineering Profile
-                    </div>{" "}
-                    : {profiles["Software Engineering Profile"]}
-                </div>
+            {index == 1 ? (
+                <>
+                    <div>
+                        <div className="inline-block font-medium mr-1 underline">
+                            Distributed Systems Courses
+                        </div>{" "}
+                        : {profiles["Distributed Systems Courses"]}
+                    </div>
+                    <div>
+                        <div className="inline-block font-medium mr-1 underline">
+                            Software Engineering Courses
+                        </div>{" "}
+                        : {profiles["Software Engineering Courses"]}
+                    </div>
+                </>
             ) : null}
             {coursesData[index] !== "" ? (
                 <div>
                     <div className="inline-block font-medium mr-1 ">
-                        Relevant Courses :
+                        {index == 1
+                            ? "Other Relevant Courses :"
+                            : "Relevant Courses :"}
                     </div>
                     {coursesData[index]}
-                </div>
-            ) : null}
-
-            {skills[index] !== "" ? (
-                <div>
-                    <div className="inline-block font-medium mr-1">
-                        Skills :
-                    </div>
-                    {skills[index]}
                 </div>
             ) : null}
         </>
