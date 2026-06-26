@@ -150,7 +150,7 @@ export default function Navbar() {
             className=" relative flew-row  mx-auto flex h-12 px-2  justify-between border-b "
         >
             <span
-                className="absolute bottom-0 -z-10 flex overflow-hidden rounded-md py-2 transition-[left,width] duration-300 ease-[cubic-bezier(0.65,0,0.35,1)]"
+                className="absolute bottom-0 -z-10 flex overflow-hidden rounded-md py-2 transition-[left,width] duration-300 ease-glide"
                 style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
             >
                 <span className="h-1 w-full rounded-md bg-primary" />
