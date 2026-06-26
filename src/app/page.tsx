@@ -2,7 +2,7 @@ import Link from "next/link";
 import StreamingBio from "@/components/me/streaming-bio";
 
 const bio =
-    "AI/ML Engineer at Promptly Health, where I help make health data less chaotic and more accessible through AI-powered products. MSc in Software Engineering (Universidade do Minho & LMU Munich). I love bringing products from idea to production. Off the clock: lifting, running, nature, music, podcasts, travel, cinema, and keeping up with tech latest trends.";
+    "AI/ML Engineer at Promptly Health, where I help make health data less chaotic and more accessible through AI-powered products. MSc in Software Engineering (Universidade do Minho & LMU Munich). I love bringing products from idea to production. Off the clock: lifting, running, nature, music, podcasts, travel, cinema, and keeping up with the latest tech trends.";
 
 export default function Home() {
     return (

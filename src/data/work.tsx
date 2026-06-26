@@ -15,8 +15,8 @@ const WorkData: WorkDataType[] = [
         company: "Promptly Health",
         role: "AI/ML Engineer | Full-Time",
         description: [    
-          "Working with AI on the medical domain at a high growth Health Data startup.",
-          "Part of a small team working on agents, medical data, post-training models, mlops pipelines.",
+          "Working with AI in the medical domain at a high growth Health Data startup.",
+          "Part of a small team working on agents, medical data, post-training models, MLOps pipelines.",
 (
             <span key="explore">
                 Leading the development of{" "}
@@ -94,7 +94,7 @@ const WorkData: WorkDataType[] = [
     },
     {
         company: "Sngular Portugal",
-        role: "Full-Stack Software Engineer | Summer Intern ",
+        role: "Full-Stack Software Engineer | Summer Intern",
         description: [
             "Collaborated in a team of four summer interns to develop a JIRA App integrated in the Atlassian Ecosystem.",
             " The goal of the app was to manage tasks and subtasks inside JIRA tickets, with a backbone for admins to manage everything.",
@@ -110,13 +110,13 @@ const WorkData: WorkDataType[] = [
             "Confluence",
             "Git/GitLab",
         ],
-        date: "Jun - Sept 2023 ",
+        date: "Jun - Sept 2023",
         location: "Braga, Portugal",
         link: "https://www.linkedin.com/company/sngular/",
     },
     {
         company: "CodeVision",
-        role: "Full-Stack Software Engineer | Summer Intern ",
+        role: "Full-Stack Software Engineer | Summer Intern",
         description: [
             "Collaborated with a team to develop an internal tool that would connect international partners with the company.",
             "Worked with Entity ORM to manage multiple databases.",
@@ -131,7 +131,7 @@ const WorkData: WorkDataType[] = [
             "Entity ORM",
             "Agile",
         ],
-        date: "Jun - Sept 2022 ",
+        date: "Jun - Sept 2022",
         location: "Braga, Portugal",
         link: "https://www.e-schooling.com/en",
     },
