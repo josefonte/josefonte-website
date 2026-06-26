@@ -25,17 +25,17 @@ import ProfileInfo from "@/components/me/nav-ProfileInfo";
 import { HeartFilledIcon } from "@radix-ui/react-icons";
 
 const description =
-    "José Fonte — AI/ML Engineer at Promptly Health, building agents over medical data. Work, education, projects, and photos.";
+    "José Fonte | AI/ML Engineer at Promptly Health, building agents over medical data. Work, Education, Projects, and Photos.";
 
 export const metadata: Metadata = {
     metadataBase: new URL("https://josefonte.xyz"),
     title: {
-        default: "José Fonte — AI/ML Engineer",
+        default: "José Fonte | AI/ML Engineer",
         template: "%s · José Fonte",
     },
     description,
     openGraph: {
-        title: "José Fonte — AI/ML Engineer",
+        title: "José Fonte | AI/ML Engineer",
         description,
         url: "https://josefonte.xyz",
         siteName: "José Fonte",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "José Fonte — AI/ML Engineer",
+        title: "José Fonte | AI/ML Engineer",
         description,
     },
 };

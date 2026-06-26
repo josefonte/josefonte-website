@@ -7,7 +7,7 @@ const bio =
 export default function Home() {
     return (
         <section className="-mt-[12px] pt-0 md:mt-0 md:pt-8">
-            <h1 className="sr-only">José Fonte — AI/ML Engineer</h1>
+            <h1 className="sr-only">José Fonte | AI/ML Engineer</h1>
             <StreamingBio text={bio} />
             <p className="mt-8 font-mono text-sm text-muted-foreground">
                 now <span className="text-signal">→</span> leading{" "}
