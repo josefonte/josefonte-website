@@ -32,7 +32,7 @@ const contacts = [
         icon: <LinkedInLogoIcon />,
     },
     {
-        name: "Github",
+        name: "GitHub",
         href: "https://github.com/josefonte",
         icon: <GitHubLogoIcon />,
     },

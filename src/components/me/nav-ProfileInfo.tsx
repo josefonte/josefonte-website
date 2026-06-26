@@ -5,7 +5,7 @@ import { SewingPinFilledIcon } from "@radix-ui/react-icons";
 
 export default function ProfileInfo() {
     return (
-        <div className=" flex-collumn gap-2 items-center place-content-center ">
+        <div className=" flex-column gap-2 items-center place-content-center ">
             <div className=" border-solid flex justify-around">
                 <Avatar className="min-w-48	 min-h-48 border-solid 	">
                     <AvatarImage
