@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useTheme } from "next-themes";
@@ -47,7 +47,56 @@ export default function MobileNav() {
     const pathname = usePathname();
     const { theme, setTheme } = useTheme();
 
+    // Download CV feedback: the PDF is a static asset so the download is
+    // effectively instant — this donut is a brief decorative fill that then
+    // flips to a success check. Mirrors the desktop ButtonsNav behaviour.
+    const [download, setDownload] = useState<{
+        progress: number;
+        done: boolean;
+    } | null>(null);
+    const downloadIntervalRef = useRef<ReturnType<typeof setInterval> | null>(
+        null,
+    );
+    const downloadTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(
+        null,
+    );
+
     const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
+
+    const handleDownloadCv = () => {
+        if (downloadIntervalRef.current)
+            clearInterval(downloadIntervalRef.current);
+        if (downloadTimeoutRef.current)
+            clearTimeout(downloadTimeoutRef.current);
+
+        setOpen(false);
+        setDownload({ progress: 0, done: false });
+
+        downloadIntervalRef.current = setInterval(() => {
+            setDownload((prev) => {
+                if (!prev || prev.done) return prev;
+                const next = prev.progress + 12;
+                if (next >= 100) {
+                    if (downloadIntervalRef.current)
+                        clearInterval(downloadIntervalRef.current);
+                    return { progress: 100, done: true };
+                }
+                return { progress: next, done: false };
+            });
+        }, 90);
+
+        // Auto-dismiss a little after it lands on the success state.
+        downloadTimeoutRef.current = setTimeout(() => setDownload(null), 2600);
+    };
+
+    useEffect(() => {
+        return () => {
+            if (downloadIntervalRef.current)
+                clearInterval(downloadIntervalRef.current);
+            if (downloadTimeoutRef.current)
+                clearTimeout(downloadTimeoutRef.current);
+        };
+    }, []);
 
     const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
         drag.current = {
@@ -107,6 +156,7 @@ export default function MobileNav() {
     };
 
     return (
+        <>
         <Sheet open={open} onOpenChange={handleOpenChange}>
             <div className="pr-4 pt-4">
                 <SheetTrigger asChild>
@@ -158,6 +208,20 @@ export default function MobileNav() {
 
                 <Separator />
 
+                {/* Pulled out of the Contacts list so it reads as the shelf's
+                    main call to action, mirroring the desktop top-corner action. */}
+                <a
+                    href="/jose-fonte-cv.pdf"
+                    download
+                    onClick={handleDownloadCv}
+                    className="flex items-center gap-3 rounded-md px-3 py-3 font-mono text-base transition-colors hover:bg-accent hover:text-signal"
+                >
+                    <Download className="w-4" />
+                    Download CV
+                </a>
+
+                <Separator />
+
                 <div className="flex flex-col gap-1">
                     <p className="px-3 text-xs font-medium uppercase tracking-wide text-muted-foreground">
                         Contacts
@@ -167,23 +231,15 @@ export default function MobileNav() {
                             key={contact.name}
                             href={contact.href}
                             target="_blank"
-                            className="group flex items-center justify-between rounded-md px-3 py-2 hover:bg-accent"
+                            className="group flex items-center justify-between rounded-md px-3 py-2 transition-colors hover:bg-accent hover:text-signal"
                         >
                             <span className="flex items-center gap-3">
                                 {contact.icon}
                                 {contact.name}
                             </span>
-                            <ArrowTopRightIcon className="transition duration-300 group-hover:rotate-45" />
+                            <ArrowTopRightIcon className="text-muted-foreground transition duration-300 group-hover:rotate-45 group-hover:text-signal" />
                         </Link>
                     ))}
-                    <a
-                        href="/jose-fonte-cv.pdf"
-                        download
-                        className="flex items-center gap-3 rounded-md px-3 py-2 hover:bg-accent"
-                    >
-                        <Download className="w-4" />
-                        Download CV
-                    </a>
                 </div>
 
                 <Separator />
@@ -198,5 +254,47 @@ export default function MobileNav() {
                 </div>
             </SheetContent>
         </Sheet>
+
+        {download && (
+            <div
+                role="status"
+                aria-live="polite"
+                className="animate-fade-up fixed bottom-6 left-6 z-50 flex w-fit items-center gap-3 rounded-md bg-primary px-4 py-2.5 font-mono text-sm text-primary-foreground shadow-lg"
+            >
+                {download.done ? (
+                    <span className="text-base text-signal">✓</span>
+                ) : (
+                    <svg
+                        className="h-5 w-5 -rotate-90"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="9"
+                            fill="none"
+                            strokeWidth="3"
+                            className="stroke-primary-foreground/25"
+                        />
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="9"
+                            fill="none"
+                            strokeWidth="3"
+                            strokeLinecap="round"
+                            className="stroke-signal transition-[stroke-dashoffset] duration-100 ease-linear"
+                            strokeDasharray={2 * Math.PI * 9}
+                            strokeDashoffset={
+                                2 * Math.PI * 9 * (1 - download.progress / 100)
+                            }
+                        />
+                    </svg>
+                )}
+                {download.done ? "CV downloaded" : "Downloading CV…"}
+            </div>
+        )}
+        </>
     );
 }

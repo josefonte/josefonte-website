@@ -76,6 +76,25 @@ Type scale: Tailwind defaults (`text-sm`, `text-base`, …). No custom scale.
 - Background: fixed radial dot grid — `#dbd9d9` dots on light, `#2b2b2b` on dark,
   `16px` grid, faded with an ellipse `mask-image`.
 
+## Mobile
+
+The site renders a **different interface below the `md` breakpoint (768px)** — `md:` is the
+desktop/mobile divider. The swap lives in `app/layout.tsx`; design and test every change at
+both ends.
+
+| Area | Desktop (`md` and up) | Mobile (below `md`) |
+| --- | --- | --- |
+| Primary nav | Horizontal tab bar with the sliding `--signal` underline (`navbar.tsx`) | Hidden — tabs move into the shelf |
+| Actions | Top-corner row, `Download CV \| Contacts \| Theme` (`buttons-nav.tsx`) | Hamburger → slide-out `Sheet` ("the shelf", `mobile-nav.tsx`) holding the same actions + tabs |
+| Gutters | `md:mx-[15%] lg:mx-[20%]` | `mx-[10%]` (content sits wider) |
+| Header spacing | `md:mt-0 md:mb-10` | tighter: `-mt-4 mb-2.5` |
+
+The desktop nav and the mobile shelf are **separate components with shared intent, not
+shared markup** — neither inherits the other's changes. Keep them in step: any action,
+label, asset, or behaviour added to one belongs in the other, translated to its layout
+(the shelf is a vertical list, so desktop's horizontal `|` dividers become `<Separator>`s
+and isolated rows, and the mono "data voice" carries over to mark actions).
+
 ## Motion
 
 | Animation | Definition |
@@ -97,3 +116,6 @@ Type scale: Tailwind defaults (`text-sm`, `text-base`, …). No custom scale.
 - shadcn/ui primitives live in `src/components/ui/`. Don't hand-edit them; regenerate
   via `bunx shadcn@latest add <component>`.
 - To retheme, edit the CSS variables in `globals.css`, not component classes.
+- **Design for desktop and mobile together.** They render different interfaces (see
+  [Mobile](#mobile)), so any UI or asset change must be checked at both breakpoints — and
+  the desktop nav and the mobile shelf must be kept in sync.
