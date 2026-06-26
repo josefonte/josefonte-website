@@ -6,16 +6,26 @@ const bio =
 
 export default function Home() {
     return (
-        <section className="pt-8">
+        <section className="-mt-[12px] pt-0 md:mt-0 md:pt-8">
             <h1 className="sr-only">José Fonte — AI/ML Engineer</h1>
             <StreamingBio text={bio} />
             <p className="mt-8 font-mono text-sm text-muted-foreground">
-                now <span className="text-signal">→</span>{" "}
+                now <span className="text-signal">→</span> leading{" "}
                 <Link
-                    href="/work"
+                    href="https://www.explore.promptlyhealth.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-foreground underline-offset-4 hover:text-signal hover:underline"
                 >
-                    leading Explore&apos;s Agent Harness @ Promptly
+                    Explore&apos;s Agent Harness
+                </Link>{" "}
+                <Link
+                    href="https://www.linkedin.com/company/promptlyhealth/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-foreground underline-offset-4 hover:text-signal hover:underline"
+                >
+                    @ Promptly
                 </Link>
             </p>
         </section>
