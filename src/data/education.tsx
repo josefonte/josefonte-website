@@ -26,7 +26,7 @@ const data: EducationDataType[] = [
         institution: "Universidade do Minho",
         course: "MSc in Software Engineering",
         description: [
-            "My first year of my master's was a combination of some broad courses and then specialization in my main interests: Distributed Systems and Software Development (Mobile & Web).",
+            "The first year of my master's was a combination of some broad courses and then specialization in my main interests: Distributed Systems and Software Development (Mobile & Web).",
         ],
         badges: [
             "OpenMP, MPI, CUDA",

@@ -15,7 +15,7 @@ const WorkData: WorkDataType[] = [
         company: "Promptly Health",
         role: "AI/ML Engineer | Full-Time",
         description: [    
-          "Working with AI in the medical domain at a high growth Health Data startup.",
+          "Working with AI in the medical domain at a high-growth Health Data startup.",
           "Part of a small team working on agents, medical data, post-training models, MLOps pipelines.",
 (
             <span key="explore">
@@ -78,7 +78,7 @@ const WorkData: WorkDataType[] = [
         role: "Assistant Teacher of Robotics",
         description: [
             "Taught a weekly robotics extracurricular class to kids from the 1st to 9th grade, focused on logical thinking and the basics of computers, electronics and code.",
-            "Participated in National/European Robotics Competition with my students.",
+            "Participated in National/European Robotics Competitions with my students.",
             "Helped organize robotics events in the country.",
         ],
         badges: [
@@ -97,7 +97,7 @@ const WorkData: WorkDataType[] = [
         role: "Full-Stack Software Engineer | Summer Intern",
         description: [
             "Collaborated in a team of four summer interns to develop a JIRA App integrated in the Atlassian Ecosystem.",
-            " The goal of the app was to manage tasks and subtasks inside JIRA tickets, with a backbone for admins to manage everything.",
+            "The goal of the app was to manage tasks and subtasks inside JIRA tickets, with a backbone for admins to manage everything.",
             "At the end of the Summer Internship, my team was able to develop, implement and test every feature.",
         ],
         badges: [
@@ -123,7 +123,7 @@ const WorkData: WorkDataType[] = [
             "At the end of the Summer Internship, I was able to deploy multiple features into production which made the experience really fulfilling.",
         ],
         badges: [
-            ".Net Framework",
+            ".NET Framework",
             "C#",
             "SQL Server",
             "Azure",
@@ -166,7 +166,7 @@ const VolWorkData: WorkDataType[] = [
         company: "IEEE Student Branch UMinho",
         role: "Member of Program Committee",
         description: [
-            "Help organize workshops, talks and other events targeted to the engineering academic community.",
+            "Help organize workshops, talks and other events targeted at the engineering academic community.",
             "Lead some technical workshops on SW Eng topics (Git/GitHub, Python, etc)",
         ],
         date: "2023 - 2025",
