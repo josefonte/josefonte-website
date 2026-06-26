@@ -66,6 +66,13 @@ const personJsonLd = {
     ],
 };
 
+// Captured at build time so the footer reflects the latest deploy.
+const lastUpdated = new Date().toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+});
+
 export default function RootLayout({
     children,
 }: {
@@ -123,16 +130,24 @@ export default function RootLayout({
                         {children}
                     </main>
 
-                    <footer className="text-sm text-center mt-5 mb-10">
-                        Made with <HeartFilledIcon className="inline-block" />{" "}
-                        by{" "}
-                        <a
-                            href="https://github.com/josefonte"
-                            target="_blank"
-                            className="inline-block hover:underline"
-                        >
-                            José Fonte
-                        </a>
+                    <footer className="flex flex-col items-center justify-center gap-1 px-4 text-sm text-center mt-5 mb-10 sm:flex-row sm:gap-2">
+                        <span>
+                            Made with{" "}
+                            <HeartFilledIcon className="inline-block" /> by{" "}
+                            <a
+                                href="https://github.com/josefonte"
+                                target="_blank"
+                                className="inline-block hover:underline"
+                            >
+                                José Fonte
+                            </a>
+                        </span>
+                        <span aria-hidden className="hidden text-muted-foreground sm:inline">
+                            |
+                        </span>
+                        <span className="text-muted-foreground">
+                            Last updated on {lastUpdated}
+                        </span>
                     </footer>
                 </ThemeProvider>
             </body>
