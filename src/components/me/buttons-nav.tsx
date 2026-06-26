@@ -8,10 +8,13 @@ import {
     LinkedInLogoIcon,
     VideoIcon,
     InstagramLogoIcon,
+    CopyIcon,
+    DownloadIcon,
 } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
-import { Download } from "lucide-react";
+import { Mail } from "lucide-react";
 import { SiGitlab } from "react-icons/si";
+import { useEffect, useRef, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 
@@ -26,12 +29,29 @@ import {
 
 import Link from "next/link";
 
+const EMAIL = "josebfonte@gmail.com";
+
 export default function ButtonsNav() {
     const { theme, setTheme } = useTheme();
+    const [copied, setCopied] = useState(false);
+    const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     const handleClicked = () => {
         setTheme(theme === "dark" ? "light" : "dark");
     };
+
+    const handleCopyEmail = async () => {
+        await navigator.clipboard.writeText(EMAIL);
+        setCopied(true);
+        if (timeoutRef.current) clearTimeout(timeoutRef.current);
+        timeoutRef.current = setTimeout(() => setCopied(false), 2200);
+    };
+
+    useEffect(() => {
+        return () => {
+            if (timeoutRef.current) clearTimeout(timeoutRef.current);
+        };
+    }, []);
 
     return (
         <div className="flex flex-row gap-3 pr-4 pt-4">
@@ -92,7 +112,7 @@ export default function ButtonsNav() {
                                 <div className="flex flex-row gap-3 items-center ">
                                     <LinkedInLogoIcon /> LinkedIn
                                 </div>
-                                <div className=" transition duration-300 group-hover:rotate-45 group-hover:cursor-pointer">
+                                <div className=" text-muted-foreground transition duration-300 group-hover:rotate-45 group-hover:cursor-pointer group-hover:text-signal">
                                     <ArrowTopRightIcon />
                                 </div>
                             </Link>
@@ -107,10 +127,23 @@ export default function ButtonsNav() {
                                 <div className="flex flex-row gap-3 items-center ">
                                     <GitHubLogoIcon /> GitHub
                                 </div>
-                                <div className=" transition duration-300 group-hover:rotate-45 group-hover:cursor-pointer">
+                                <div className=" text-muted-foreground transition duration-300 group-hover:rotate-45 group-hover:cursor-pointer group-hover:text-signal">
                                     <ArrowTopRightIcon />
                                 </div>
                             </Link>
+                        </DropdownMenuItem>
+
+                        <DropdownMenuItem
+                            onSelect={(e) => {
+                                e.preventDefault();
+                                handleCopyEmail();
+                            }}
+                            className="group flex flex-row justify-between items-center hover:cursor-pointer"
+                        >
+                            <div className="flex flex-row gap-3 items-center">
+                                <Mail className="w-4" /> Email Me
+                            </div>
+                            <CopyIcon className="text-muted-foreground transition-colors group-hover:text-signal" />
                         </DropdownMenuItem>
                     </DropdownMenuGroup>
                     <DropdownMenuSeparator />
@@ -118,9 +151,10 @@ export default function ButtonsNav() {
                         <a
                             href="/jose-fonte-cv.pdf"
                             download
-                            className="flex flex-row gap-4 items-center hover:cursor-pointer"
+                            className="group flex flex-row gap-4 items-center hover:cursor-pointer"
                         >
-                            Download CV <Download className="w-4" />
+                            Download CV{" "}
+                            <DownloadIcon className="text-muted-foreground transition-colors group-hover:text-signal" />
                         </a>
                     </DropdownMenuItem>
                 </DropdownMenuContent>
@@ -131,6 +165,17 @@ export default function ButtonsNav() {
                 <MoonIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
                 <span className="sr-only">Toggle theme</span>
             </Button>
+
+            {copied && (
+                <div
+                    role="status"
+                    aria-live="polite"
+                    className="animate-fade-up fixed inset-x-0 bottom-6 z-50 mx-auto flex w-fit items-center gap-2 rounded-md bg-primary px-4 py-2.5 font-mono text-sm text-primary-foreground shadow-lg"
+                >
+                    <span className="text-signal">✓</span>
+                    Email copied to clipboard
+                </div>
+            )}
         </div>
     );
 }
