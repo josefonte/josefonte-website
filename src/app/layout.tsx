@@ -49,6 +49,23 @@ export const metadata: Metadata = {
     },
 };
 
+const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "José Fonte",
+    url: "https://josefonte.xyz",
+    jobTitle: "AI/ML Engineer",
+    worksFor: { "@type": "Organization", name: "Promptly Health" },
+    alumniOf: [
+        { "@type": "CollegeOrUniversity", name: "Universidade do Minho" },
+        { "@type": "CollegeOrUniversity", name: "LMU Munich" },
+    ],
+    sameAs: [
+        "https://github.com/josefonte",
+        "https://www.linkedin.com/in/jose-pedro-fonte/",
+    ],
+};
+
 export default function RootLayout({
     children,
 }: {
@@ -59,6 +76,12 @@ export default function RootLayout({
             <body
                 className={`${plexSans.variable} ${plexMono.variable} min-h-screen font-sans flex flex-col`}
             >
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(personJsonLd),
+                    }}
+                />
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="system"
