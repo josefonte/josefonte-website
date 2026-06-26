@@ -22,6 +22,12 @@ The Next.js app lives at the repo root.
   unless a change genuinely needs them.
 - Match the existing Tailwind + shadcn/ui style. Light/dark theme is handled by
   `next-themes`.
+- **Design for desktop and mobile together.** Below the `md` breakpoint the site renders a
+  different interface (see the Mobile section in `.agents/design.md`), so any UI or asset
+  change must be checked in both. The clearest case is the nav: desktop (`buttons-nav.tsx`
+  + `navbar.tsx`) and the mobile "shelf" (`mobile-nav.tsx`) are separate components with
+  shared intent, not shared markup — a change to one is not reflected in the other, so
+  mirror it.
 
 ## Tooling
 
