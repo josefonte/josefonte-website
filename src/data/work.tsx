@@ -1,10 +1,13 @@
+import type { ReactNode } from "react";
+
 export interface WorkDataType {
     company: string;
     role: string;
-    description: string[];
+    description: ReactNode[];
     badges?: string[] | undefined;
     date: string;
     location?: string;
+    link?: string;
 }
 
 const WorkData: WorkDataType[] = [
@@ -12,9 +15,25 @@ const WorkData: WorkDataType[] = [
         company: "Promptly Health",
         role: "AI/ML Engineer | Full-Time",
         description: [    
-          "Working with AI on the medical domain",
+          "Working with AI on the medical domain at a high growth Health Data startup.",
           "Part of a small team working on agents, medical data, post-training models, mlops pipelines.",
-"Leading the development of Explore's Agent Harness.  A platform to explore and build insights on medical databases through Natural Language. Work on Agent Harness, Tool Design, RAG Systems, Evals, Observability/Monitoring.",
+(
+            <span key="explore">
+                Leading the development of{" "}
+                <a
+                    href="https://www.explore.promptlyhealth.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline-offset-4 hover:text-signal hover:underline"
+                >
+                    Explore
+                </a>
+                &apos;s Agent Harness. A platform to explore and build insights
+                on medical databases through Natural Language. Work on Agent
+                Harness, Tool Design, RAG Systems, Evals,
+                Observability/Monitoring.
+            </span>
+          ),
           
         ],
         badges: [
@@ -30,6 +49,7 @@ const WorkData: WorkDataType[] = [
         ],
         date: "Mar 2025 - Present",
         location: "Porto, Portugal | Remote",
+        link: "https://promptlyhealth.com/pt",
     },
     {
         company: "Promptly Health",
@@ -51,6 +71,7 @@ const WorkData: WorkDataType[] = [
         ],
         date: "Jun - Aug 2024",
         location: "Porto, Portugal | Remote",
+        link: "https://promptlyhealth.com/pt",
     },
     {
         company: "Colégio João Paulo II",
@@ -69,6 +90,7 @@ const WorkData: WorkDataType[] = [
         ],
         date: "Sept 2021 - Jun 2024",
         location: "Braga, Portugal",
+        link: "https://cjp.com.pt/",
     },
     {
         company: "Sngular Portugal",
@@ -90,6 +112,7 @@ const WorkData: WorkDataType[] = [
         ],
         date: "Jun - Sept 2023 ",
         location: "Braga, Portugal",
+        link: "https://www.linkedin.com/company/sngular/",
     },
     {
         company: "CodeVision",
@@ -110,6 +133,7 @@ const WorkData: WorkDataType[] = [
         ],
         date: "Jun - Sept 2022 ",
         location: "Braga, Portugal",
+        link: "https://www.e-schooling.com/en",
     },
 ];
 
@@ -124,6 +148,7 @@ const VolWorkData: WorkDataType[] = [
         badges: [],
         date: "2023 - 2024",
         location: "Braga, Portugal",
+        link: "https://cesium.di.uminho.pt/pt",
     },
     {
         company: "CoderDojo Braga",
@@ -135,6 +160,7 @@ const VolWorkData: WorkDataType[] = [
 
         date: "2023 - 2024",
         location: "Braga, Portugal",
+        link: "https://coderdojobraga.org/",
     },
     {
         company: "IEEE Student Branch UMinho",
@@ -145,6 +171,7 @@ const VolWorkData: WorkDataType[] = [
         ],
         date: "2023 - 2025",
         location: "Braga, Portugal",
+        link: "https://um.ieee-pt.org/",
     },
 ];
 

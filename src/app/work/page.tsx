@@ -15,6 +15,7 @@ export default function Work() {
                 <EduWorkCard
                     key={index}
                     title={card.company}
+                    titleHref={card.link}
                     subtitle={card.role}
                     description={card.description}
                     badges={card.badges}
@@ -29,6 +30,7 @@ export default function Work() {
                 <EduWorkCard
                     key={index}
                     title={card.company}
+                    titleHref={card.link}
                     subtitle={card.role}
                     description={card.description}
                     badges={card.badges}

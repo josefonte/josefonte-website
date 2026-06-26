@@ -12,13 +12,15 @@ import {
 import { Badge } from "@/components/ui/badge";
 
 import { ChevronDownIcon } from "@radix-ui/react-icons";
+import { ArrowUpRight } from "lucide-react";
 
-import { ReactElement, useState } from "react";
+import { ReactElement, ReactNode, useState } from "react";
 
 interface CardProps {
     title: string;
+    titleHref?: string;
     subtitle: string;
-    description: string[];
+    description: ReactNode[];
     badges?: string[];
     date: string;
     location?: string;
@@ -27,6 +29,7 @@ interface CardProps {
 
 export default function EduWorkCard({
     title,
+    titleHref,
     subtitle,
     description,
     badges,
@@ -42,7 +45,19 @@ export default function EduWorkCard({
             <CardHeader className="pb-3">
                 <CardTitle className="flex flex-row justify-between items-center gap-3">
                     <div className="text-xl font-display tracking-tight">
-                        {title}
+                        {titleHref ? (
+                            <a
+                                href={titleHref}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group inline-flex items-end gap-1 underline-offset-4 hover:text-signal hover:underline"
+                            >
+                                {title}
+                                <ArrowUpRight className="mb-1 h-4 w-4 text-muted-foreground group-hover:text-signal" />
+                            </a>
+                        ) : (
+                            title
+                        )}
                     </div>
                     <div className="font-mono text-xs font-normal text-muted-foreground text-right shrink-0">
                         {location}
