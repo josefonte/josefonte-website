@@ -1,33 +1,72 @@
-import Link from "next/link";
 import StreamingBio from "@/components/me/streaming-bio";
 
-const bio =
-    "AI/ML Engineer at Promptly Health, where I help make health data less chaotic and more accessible through AI-powered products. MSc in Software Engineering (Universidade do Minho & LMU Munich). I love bringing products from idea to production. Off the clock: lifting, running, nature, music, podcasts, travel, cinema, and keeping up with the latest tech trends.";
+type TokenOptions = {
+    className?: string;
+    external?: boolean;
+    href?: string;
+};
+
+const linkedTokenClass =
+    "text-foreground/70 underline underline-offset-4 decoration-foreground/35 transition-colors hover:text-signal hover:decoration-signal";
+
+const tokens = (text: string, options: TokenOptions = {}) =>
+    (text.match(/\s*\S+\s*/g) ?? []).map((part) => ({
+        ...options,
+        text: part,
+    }));
+
+const paragraph = (text: string) => ({
+    tokens: tokens(text),
+});
+
+const sections = [
+    {
+        prompt: "whoami",
+        paragraphs: [
+            paragraph(
+                "Software Engineer with an MSc in Software Engineering (Universidade do Minho & LMU Munich)."
+            ),
+            paragraph(
+                "Passionate about bringing products from idea to production with main interests in AI/ML, Robotics, Product Design, and Distributed Systems."
+            ),
+            paragraph(
+                "Off the clock I love lifting, running, travelling, nature, podcasts, music, cinema, and keeping up with the latest tech trends."
+            ),
+        ],
+    },
+    {
+        prompt: "now",
+        paragraphs: [
+            {
+                tokens: [
+                    ...tokens("Leading "),
+                    {
+                        className: linkedTokenClass,
+                        external: true,
+                        href: "https://www.explore.promptlyhealth.com/",
+                        text: "Explore's Agent Harness",
+                    },
+                    { text: " " },
+                    {
+                        className: linkedTokenClass,
+                        external: true,
+                        href: "https://www.linkedin.com/company/promptlyhealth/",
+                        text: "@ Promptly Health",
+                    },
+                    ...tokens(
+                        ". Working on SoTA approaches to Agent Harness, Tool Design, Evals, and Monitoring/Observability."
+                    ),
+                ],
+            },
+        ],
+    },
+];
 
 export default function Home() {
     return (
         <section className="-mt-[12px] pt-0 md:mt-0 md:pt-8">
             <h1 className="sr-only">José Fonte | AI/ML Engineer</h1>
-            <StreamingBio text={bio} />
-            <p className="mt-8 font-mono text-sm text-muted-foreground">
-                now <span className="text-signal">→</span> leading{" "}
-                <Link
-                    href="https://www.explore.promptlyhealth.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-foreground underline-offset-4 hover:text-signal hover:underline"
-                >
-                    Explore&apos;s Agent Harness
-                </Link>{" "}
-                <Link
-                    href="https://www.linkedin.com/company/promptlyhealth/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-foreground underline-offset-4 hover:text-signal hover:underline"
-                >
-                    @ Promptly
-                </Link>
-            </p>
+            <StreamingBio sections={sections} />
         </section>
     );
 }
