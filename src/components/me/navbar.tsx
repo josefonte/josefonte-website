@@ -114,6 +114,7 @@ function useInitialTabIndex() {
 }
 
 export default function Navbar() {
+    const containerRef = useRef<HTMLDivElement | null>(null);
     const tabsRef = useRef<(HTMLElement | null)[]>([]);
     const [activeTabIndex, setActiveTabIndex] = useState<number | null>(
         useInitialTabIndex()
@@ -134,12 +135,22 @@ export default function Navbar() {
         };
 
         setTabPosition();
+
+        // Keep the bar aligned with its tab as the layout reflows on resize.
+        const observer = new ResizeObserver(setTabPosition);
+        if (containerRef.current) {
+            observer.observe(containerRef.current);
+        }
+        return () => observer.disconnect();
     }, [activeTabIndex]);
 
     return (
-        <div className=" relative flew-row  mx-auto flex h-12 px-2  justify-between border-b ">
+        <div
+            ref={containerRef}
+            className=" relative flew-row  mx-auto flex h-12 px-2  justify-between border-b "
+        >
             <span
-                className="absolute bottom-0 -z-10 flex overflow-hidden rounded-md py-2 transition-all duration-300"
+                className="absolute bottom-0 -z-10 flex overflow-hidden rounded-md py-2 transition-[left,width] duration-300 ease-glide"
                 style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
             >
                 <span className="h-1 w-full rounded-md bg-primary" />

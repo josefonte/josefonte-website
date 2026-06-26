@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useTheme } from "next-themes";
@@ -40,13 +40,74 @@ const contacts = [
 
 export default function MobileNav() {
     const [open, setOpen] = useState(false);
+    const [dragX, setDragX] = useState(0);
+    const [dragging, setDragging] = useState(false);
+    const [closing, setClosing] = useState(false);
+    const drag = useRef({ startX: 0, active: false, width: 0, moved: false });
     const pathname = usePathname();
     const { theme, setTheme } = useTheme();
 
     const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
 
+    const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+        drag.current = {
+            startX: e.clientX,
+            active: true,
+            width: e.currentTarget.offsetWidth,
+            moved: false,
+        };
+    };
+
+    const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+        if (!drag.current.active) return;
+        const dx = e.clientX - drag.current.startX;
+        if (!drag.current.moved && dx > 8) {
+            drag.current.moved = true;
+            e.currentTarget.setPointerCapture(e.pointerId);
+            setDragging(true);
+        }
+        if (drag.current.moved) setDragX(Math.max(0, dx));
+    };
+
+    const onPointerUp = () => {
+        if (!drag.current.active) return;
+        const shouldClose = drag.current.moved && dragX > drag.current.width / 3;
+        drag.current.active = false;
+        setDragging(false);
+        if (shouldClose) {
+            // Continue the slide off-screen from where the finger let go.
+            setClosing(true);
+            setDragX(drag.current.width);
+        } else {
+            setDragX(0);
+        }
+    };
+
+    // Fires when the off-screen slide finishes; only then unmount the sheet.
+    const onTransitionEnd = () => {
+        if (closing) setOpen(false);
+    };
+
+    // Reset drag state on (re)open so the enter animation starts clean.
+    const handleOpenChange = (next: boolean) => {
+        if (next) {
+            setClosing(false);
+            setDragX(0);
+        }
+        setOpen(next);
+    };
+
+    // Suppress the click that follows a drag so swiping doesn't trigger a nav link.
+    const onClickCapture = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (drag.current.moved) {
+            e.preventDefault();
+            e.stopPropagation();
+            drag.current.moved = false;
+        }
+    };
+
     return (
-        <Sheet open={open} onOpenChange={setOpen}>
+        <Sheet open={open} onOpenChange={handleOpenChange}>
             <div className="pr-4 pt-4">
                 <SheetTrigger asChild>
                     <Button variant="outline" size="icon">
@@ -56,7 +117,23 @@ export default function MobileNav() {
                 </SheetTrigger>
             </div>
 
-            <SheetContent side="right" className="flex flex-col gap-4">
+            <SheetContent
+                side="right"
+                className="flex flex-col gap-4 [&>button]:hidden"
+                onPointerDown={onPointerDown}
+                onPointerMove={onPointerMove}
+                onPointerUp={onPointerUp}
+                onClickCapture={onClickCapture}
+                onTransitionEnd={onTransitionEnd}
+                style={{
+                    transform: `translateX(${dragX}px)`,
+                    transition: dragging ? "none" : "transform 0.3s ease",
+                    // Suppress Radix's own exit animation while we drag it out,
+                    // so the two don't fight and snap the panel back open first.
+                    animation: closing ? "none" : undefined,
+                    touchAction: "pan-y",
+                }}
+            >
                 <SheetTitle className="sr-only">Menu</SheetTitle>
 
                 <nav className="mt-6 flex flex-col gap-1">
