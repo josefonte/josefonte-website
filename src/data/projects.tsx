@@ -33,16 +33,6 @@ const data: ProjectsCardType[] = [
         ],
         repo_link: "https://github.com/josefonte/University",
     },
-    {
-        title: "Minimalist CVs",
-        description:
-            "Minimalist CVs is a project that aims to provide simple, easy to use and Open Source Portfolio Websites.",
-        active: false,
-        repo_link: "https://github.com/josefonte/minimalist-cvs",
-        icon: <GitHubLogoIcon className="h-5 w-5 hover:scale-110 " />,
-        date: "2024",
-        badges: ["NextJS", "React", "shadcn/ui", "Typescript", "TailwindCSS"],
-    },
 ];
 
 export { data };
