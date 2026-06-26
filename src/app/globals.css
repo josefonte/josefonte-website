@@ -7,11 +7,11 @@
        --signal is the brand accent and is distinct from shadcn's --accent
        (which stays a neutral hover surface). --ring is mapped to --signal. */
     :root {
-        --background: 40 43% 96%;
+        --background: 38 44% 92%;
         --foreground: 240 8% 9%;
-        --card: 40 43% 96%;
+        --card: 40 45% 96%;
         --card-foreground: 240 8% 9%;
-        --popover: 40 43% 96%;
+        --popover: 40 45% 97%;
         --popover-foreground: 240 8% 9%;
         --primary: 240 8% 9%;
         --primary-foreground: 40 43% 96%;

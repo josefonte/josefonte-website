@@ -136,7 +136,7 @@ export default function Navbar() {
     return (
         <div
             ref={containerRef}
-            className="relative mx-auto flex h-12 px-2 justify-between border-b"
+            className="relative mx-auto flex h-12 px-2 justify-between border-b border-foreground/15"
         >
             <span
                 className={`absolute bottom-0 -z-10 flex overflow-hidden rounded-md py-2 transition-[left,width,opacity] duration-300 ease-glide ${
