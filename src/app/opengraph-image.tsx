@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 // Terminal-paper identity, dark variant: ink-on-paper with the amber "signal" accent.
-export const alt = "José Fonte — AI/ML Engineer";
+export const alt = "José Fonte | AI/ML Engineer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
