@@ -27,3 +27,18 @@ Append-only, dated (YYYY-MM-DD), newest at the bottom. One line + short why.
 - 2026-06-25 — Renamed the GitHub repo `josefonte.pt` → `josefonte-website` and updated
   doc references; live domain links point to josefonte.xyz. Why: decouple repo name from
   the TLD, which depends on the DNS bill (.pt vs .xyz).
+- 2026-06-26 — Reskinned off the shadcn-slate default to a **"terminal paper"** identity:
+  Space Grotesk / Inter / JetBrains Mono, a single indigo `--signal` accent (distinct from
+  shadcn `--accent`), mono "data voice" + `~/page` path-headers, and a streaming `> whoami`
+  hero. Also fixed metadata/OG, `<main>`+skip-link, footer link, styled 404, favicon,
+  photos lazy-loading + data refactor, and moved education course content into `src/data/`.
+  Removed the Blog (placeholder feed). Why: a deliberate, accessible identity over a
+  templated starter. See [design.md](design.md).
+- 2026-06-26 — UX audit pass: removed the `jf` corner logo (home link moved onto the
+  profile name "José Fonte" → `/`); hid the `~/page` path-headers (kept as `sr-only`
+  `<h1>` for a11y/SEO); set the Contacts nav label in mono. Warmed the light paper
+  (`45 33% 98%` → `40 43% 96%`). Switched the `--signal` accent from indigo to amber
+  (`32 90% 47%` / dark `38 90% 60%`). Collapsed typography from three families to a
+  **two-font superfamily system: IBM Plex Sans (main, body + headings) + IBM Plex Mono
+  (accent/"data voice")**; `font-display` now aliases `--font-sans`. Why: warmer, more
+  distinctive identity with a cohesive, intentional type pairing. See [design.md](design.md).

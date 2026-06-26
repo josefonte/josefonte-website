@@ -37,7 +37,9 @@ export default function ButtonsNav() {
         <div className="flex flex-row gap-3 pr-4 pt-4">
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                    <Button variant="link">Contacts</Button>
+                    <Button variant="link" className="font-mono">
+                        Contacts
+                    </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                     <DropdownMenuGroup>

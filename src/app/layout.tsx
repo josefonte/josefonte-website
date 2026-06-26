@@ -1,6 +1,19 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
+
+// Two-font system: IBM Plex Sans is the main face (body + headings), IBM Plex
+// Mono is the accent / "data voice". Same superfamily, so they pair cleanly.
+const plexSans = IBM_Plex_Sans({
+    subsets: ["latin"],
+    weight: ["400", "500", "600", "700"],
+    variable: "--font-sans",
+});
+const plexMono = IBM_Plex_Mono({
+    subsets: ["latin"],
+    weight: ["400", "500", "600"],
+    variable: "--font-mono",
+});
 
 import { ThemeProvider } from "@/components/theme-provider";
 
@@ -11,9 +24,29 @@ import ProfileInfo from "@/components/me/nav-ProfileInfo";
 
 import { HeartFilledIcon } from "@radix-ui/react-icons";
 
+const description =
+    "José Fonte — AI/ML Engineer at Promptly Health, building agents over medical data. Work, education, projects, and photos.";
+
 export const metadata: Metadata = {
-    title: "josefonte",
-    description: "Create a CV with Next.js and Tailwind CSS",
+    metadataBase: new URL("https://josefonte.xyz"),
+    title: {
+        default: "José Fonte — AI/ML Engineer",
+        template: "%s · José Fonte",
+    },
+    description,
+    openGraph: {
+        title: "José Fonte — AI/ML Engineer",
+        description,
+        url: "https://josefonte.xyz",
+        siteName: "José Fonte",
+        locale: "en_US",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "José Fonte — AI/ML Engineer",
+        description,
+    },
 };
 
 export default function RootLayout({
@@ -23,22 +56,33 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className="min-h-screen font-sans flex flex-col">
+            <body
+                className={`${plexSans.variable} ${plexMono.variable} min-h-screen font-sans flex flex-col`}
+            >
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="system"
                     enableSystem
                     disableTransitionOnChange
                 >
+                    <a
+                        href="#content"
+                        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-background focus:px-4 focus:py-2 focus:font-mono focus:text-sm focus:ring-2 focus:ring-signal"
+                    >
+                        Skip to content
+                    </a>
+
                     <div className="fixed -z-10 inset-0 h-screen w-full bg-[radial-gradient(#dbd9d9_1px,transparent_1px)] dark:bg-[radial-gradient(#2b2b2b_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_70%_57%_at_50%_50%,#000_60%,transparent_100%)]"></div>
 
                     <div className="flex-col ">
-                        <div className=" flex justify-end  ">
-                            <div className="hidden md:block">
-                                <ButtonsNav />
-                            </div>
-                            <div className="md:hidden">
-                                <MobileNav />
+                        <div className="flex items-start justify-end">
+                            <div>
+                                <div className="hidden md:block">
+                                    <ButtonsNav />
+                                </div>
+                                <div className="md:hidden">
+                                    <MobileNav />
+                                </div>
                             </div>
                         </div>
                         <div className="lg:mx-[25%] mb-10 ">
@@ -49,21 +93,24 @@ export default function RootLayout({
                         </div>
                     </div>
 
-                    <div className="mx-[10%] md:mx-[15%] lg:mx-[20%] mt-3 flex-1">
+                    <main
+                        id="content"
+                        className="mx-[10%] md:mx-[15%] lg:mx-[20%] mt-3 flex-1"
+                    >
                         {children}
-                    </div>
+                    </main>
 
-                    <div className="text-sm text-center my-5">
+                    <footer className="text-sm text-center my-5">
                         Made with <HeartFilledIcon className="inline-block" />{" "}
                         by{" "}
                         <a
-                            href="https://github.com/josefonte/minimalist-cvs/"
+                            href="https://github.com/josefonte"
                             target="_blank"
                             className="inline-block hover:underline"
                         >
                             José Fonte
                         </a>
-                    </div>
+                    </footer>
                 </ThemeProvider>
             </body>
         </html>

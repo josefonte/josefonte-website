@@ -10,23 +10,29 @@ export default function ProfileInfo() {
                 <Avatar className="min-w-48	 min-h-48 border-solid 	">
                     <AvatarImage
                         src="https://avatars.githubusercontent.com/u/73178551?s=400&u=f731b4eb21666e95ace44de763b615ea33660abd&v=4"
-                        alt="@josefonte"
+                        alt="José Fonte"
                     />
-                    <AvatarFallback>José Fonte</AvatarFallback>
+                    <AvatarFallback className="font-display text-3xl font-bold">
+                        JF
+                    </AvatarFallback>
                 </Avatar>
             </div>
 
             <div className="flex flex-col gap-2 mt-2 ">
-                <div className="text-3xl font-bold border-solid text-center">
+                <Link
+                    href="/"
+                    aria-label="José Fonte — about"
+                    className="text-3xl font-display font-semibold tracking-tight text-center transition-colors hover:text-signal"
+                >
                     José Fonte
-                </div>
-                <div className="flex flex-col  justify-center  gap-2  text-center flex-wrap items-center">
-                    <div> AI/ML Engineer</div>
+                </Link>
+                <div className="flex flex-col justify-center gap-1.5 text-center flex-wrap items-center font-mono text-sm text-muted-foreground">
+                    <div>AI/ML Engineer</div>
                     <div className="flex flex-row gap-2 items-center">
                         <div className="flex flex-row gap-1 items-center">
-                            <div className=" italic ">@</div>
+                            <span>@</span>
                             <Link
-                                className="italic hover:underline hover:cursor-pointer "
+                                className="text-foreground hover:text-signal hover:underline underline-offset-4"
                                 href="https://www.linkedin.com/company/promptlyhealth/"
                                 target="_blank"
                             >
@@ -38,12 +44,12 @@ export default function ProfileInfo() {
                             className="inline-block h-4 w-4 rounded"
                             width={50}
                             height={50}
-                            alt="Promptly Health Logo"
+                            alt="Promptly Health logo"
                         />
                     </div>
-                </div>
-                <div className="flex flex-row justify-center  gap-1 items-center text-center">
-                    <SewingPinFilledIcon /> Portugal
+                    <div className="flex flex-row justify-center gap-1 items-center">
+                        <SewingPinFilledIcon /> Portugal
+                    </div>
                 </div>
             </div>
         </div>

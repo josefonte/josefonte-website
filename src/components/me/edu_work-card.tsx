@@ -35,20 +35,22 @@ export default function EduWorkCard({
     customFields,
 }: CardProps) {
     const [expanded, setExpanded] = useState(false);
-    const hasMore = (badges?.length ?? 0) > 0;
+    const hasMore = (badges?.length ?? 0) > 0 || Boolean(customFields);
 
     return (
         <Card className="my-4 backdrop-blur-sm ">
             <CardHeader className="pb-3">
-                <CardTitle className="flex flex-row justify-between items-center">
-                    <div className="text-xl">{title}</div>
-                    <div className="text-sm font-normal	text-muted-foreground subpixel-antialiased ">
+                <CardTitle className="flex flex-row justify-between items-center gap-3">
+                    <div className="text-xl font-display tracking-tight">
+                        {title}
+                    </div>
+                    <div className="font-mono text-xs font-normal text-muted-foreground text-right shrink-0">
                         {location}
                     </div>
                 </CardTitle>
-                <CardDescription className="flex flex-row justify-between items-start">
+                <CardDescription className="flex flex-row justify-between items-start gap-3">
                     <div className="text-sm">{subtitle}</div>
-                    <div className="text-xs font-normal	text-muted-foreground subpixel-antialiased">
+                    <div className="font-mono text-xs font-normal text-muted-foreground text-right shrink-0">
                         {date}
                     </div>
                 </CardDescription>
@@ -81,7 +83,11 @@ export default function EduWorkCard({
             {expanded && (badges?.length ?? 0) > 0 && (
                 <CardFooter className={`flex flex-row flex-wrap pb-4`}>
                     {badges?.map((badge, index) => (
-                        <Badge key={index} className="mr-2 mb-2">
+                        <Badge
+                            key={index}
+                            variant="outline"
+                            className="mr-2 mb-2 rounded-md font-mono text-[11px] font-normal text-muted-foreground"
+                        >
                             {badge}
                         </Badge>
                     ))}

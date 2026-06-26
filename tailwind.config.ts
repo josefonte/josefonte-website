@@ -18,10 +18,16 @@ const config = {
             },
         },
         extend: {
+            fontFamily: {
+                sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+                display: ["var(--font-sans)", "sans-serif"],
+                mono: ["var(--font-mono)", "ui-monospace", "monospace"],
+            },
             colors: {
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
                 ring: "hsl(var(--ring))",
+                signal: "hsl(var(--signal))",
                 background: "hsl(var(--background))",
                 foreground: "hsl(var(--foreground))",
                 primary: {
@@ -74,11 +80,16 @@ const config = {
                     from: { opacity: "0", transform: "translateY(6px)" },
                     to: { opacity: "1", transform: "translateY(0)" },
                 },
+                blink: {
+                    "0%, 49%": { opacity: "1" },
+                    "50%, 100%": { opacity: "0" },
+                },
             },
             animation: {
                 "accordion-down": "accordion-down 0.2s ease-out",
                 "accordion-up": "accordion-up 0.2s ease-out",
                 "fade-up": "fade-up 0.28s var(--ease-glide) 0.06s both",
+                blink: "blink 1s steps(1) infinite",
             },
         },
     },

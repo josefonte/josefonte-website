@@ -12,29 +12,35 @@ mapping), `components.json` (shadcn config). Theme switching via `next-themes`
 
 Colors are HSL channel triples in CSS variables, consumed as `hsl(var(--token))` and
 exposed to Tailwind as semantic utilities (e.g. `bg-background`, `text-muted-foreground`).
-shadcn base color: **slate**. Each token has a paired `*-foreground` for text on it.
+Palette: **"terminal paper"** — warm paper + ink with a single amber "signal" accent.
+Each token has a paired `*-foreground` for text on it.
 
 | Token | Light `H S% L%` | Dark `H S% L%` | Tailwind |
 | --- | --- | --- | --- |
-| `--background` | `0 0% 100%` | `222.2 84% 4.9%` | `bg-background` |
-| `--foreground` | `222.2 84% 4.9%` | `210 40% 98%` | `text-foreground` |
-| `--card` | `0 0% 100%` | `222.2 84% 4.9%` | `bg-card` |
-| `--card-foreground` | `222.2 84% 4.9%` | `210 40% 98%` | `text-card-foreground` |
-| `--popover` | `0 0% 100%` | `222.2 84% 4.9%` | `bg-popover` |
-| `--popover-foreground` | `222.2 84% 4.9%` | `210 40% 98%` | `text-popover-foreground` |
-| `--primary` | `222.2 47.4% 11.2%` | `210 40% 98%` | `bg-primary` |
-| `--primary-foreground` | `210 40% 98%` | `222.2 47.4% 11.2%` | `text-primary-foreground` |
-| `--secondary` | `210 40% 96.1%` | `217.2 32.6% 17.5%` | `bg-secondary` |
-| `--secondary-foreground` | `222.2 47.4% 11.2%` | `210 40% 98%` | `text-secondary-foreground` |
-| `--muted` | `210 40% 96.1%` | `217.2 32.6% 17.5%` | `bg-muted` |
-| `--muted-foreground` | `215.4 16.3% 46.9%` | `215 20.2% 65.1%` | `text-muted-foreground` |
-| `--accent` | `210 40% 96.1%` | `217.2 32.6% 17.5%` | `bg-accent` |
-| `--accent-foreground` | `222.2 47.4% 11.2%` | `210 40% 98%` | `text-accent-foreground` |
-| `--destructive` | `0 84.2% 60.2%` | `0 62.8% 30.6%` | `bg-destructive` |
-| `--destructive-foreground` | `210 40% 98%` | `210 40% 98%` | `text-destructive-foreground` |
-| `--border` | `214.3 31.8% 91.4%` | `217.2 32.6% 17.5%` | `border-border` |
-| `--input` | `214.3 31.8% 91.4%` | `217.2 32.6% 17.5%` | `border-input` |
-| `--ring` | `222.2 84% 4.9%` | `212.7 26.8% 83.9` | `ring-ring` |
+| `--background` (paper) | `40 43% 96%` | `240 6% 8%` | `bg-background` |
+| `--foreground` (ink) | `240 8% 9%` | `48 18% 95%` | `text-foreground` |
+| `--card` | `40 43% 96%` | `240 6% 8%` | `bg-card` |
+| `--card-foreground` | `240 8% 9%` | `48 18% 95%` | `text-card-foreground` |
+| `--popover` | `40 43% 96%` | `240 6% 8%` | `bg-popover` |
+| `--popover-foreground` | `240 8% 9%` | `48 18% 95%` | `text-popover-foreground` |
+| `--primary` | `240 8% 9%` | `48 18% 95%` | `bg-primary` |
+| `--primary-foreground` | `40 43% 96%` | `240 6% 8%` | `text-primary-foreground` |
+| `--secondary` | `42 17% 94%` | `240 6% 16%` | `bg-secondary` |
+| `--secondary-foreground` | `240 8% 9%` | `48 18% 95%` | `text-secondary-foreground` |
+| `--muted` | `42 17% 94%` | `240 6% 14%` | `bg-muted` |
+| `--muted-foreground` | `240 4% 43%` | `240 5% 56%` | `text-muted-foreground` |
+| `--accent` (neutral hover) | `42 17% 92%` | `240 6% 18%` | `bg-accent` |
+| `--accent-foreground` | `240 8% 9%` | `48 18% 95%` | `text-accent-foreground` |
+| `--destructive` | `0 72% 51%` | `0 62% 45%` | `bg-destructive` |
+| `--destructive-foreground` | `40 43% 96%` | `48 18% 95%` | `text-destructive-foreground` |
+| `--border` (hairline) | `42 17% 89%` | `240 6% 16%` | `border-border` |
+| `--input` | `42 17% 89%` | `240 6% 16%` | `border-input` |
+| `--signal` (brand accent) | `32 90% 47%` | `38 90% 60%` | `bg-signal` / `text-signal` |
+| `--ring` | `32 90% 47%` | `38 90% 60%` | `ring-ring` |
+
+**`--signal` is the brand accent** (cursor, active nav, link hover, focus ring) and is
+deliberately separate from shadcn's `--accent`, which stays a neutral hover surface.
+`--ring` is mapped to `--signal` so keyboard focus is on-brand.
 
 ## Radius
 
@@ -48,8 +54,19 @@ shadcn base color: **slate**. Each token has a paired `*-foreground` for text on
 
 ## Typography
 
-- Font: **Inter** (`next/font/google`), applied via the default `font-sans` utility.
-- Type scale: Tailwind defaults (`text-sm`, `text-base`, …). No custom scale.
+A two-font system from one superfamily, via `next/font/google` (CSS variables on
+`<body>`): **IBM Plex Sans** is the main face (body + display), **IBM Plex Mono** is the
+accent / "data voice".
+
+| Role | Font | Variable | Tailwind | Used for |
+| --- | --- | --- | --- | --- |
+| Main | **IBM Plex Sans** | `--font-sans` | `font-sans` (default) | running copy; also headings, names, card titles via `font-display` |
+| Accent | **IBM Plex Mono** | `--font-mono` | `font-mono` | the "data voice": dates, locations, badge chips, eyebrows, the hero prompt, the Contacts nav label |
+
+`font-display` is an alias that maps to `--font-sans` (so heading utilities keep working);
+hierarchy comes from weight/size, not a separate display family.
+
+Type scale: Tailwind defaults (`text-sm`, `text-base`, …). No custom scale.
 
 ## Layout
 
@@ -65,9 +82,13 @@ shadcn base color: **slate**. Each token has a paired `*-foreground` for text on
 | --- | --- |
 | `animate-accordion-down` | `accordion-down 0.2s ease-out` |
 | `animate-accordion-up` | `accordion-up 0.2s ease-out` |
+| `animate-fade-up` | `fade-up 0.28s var(--ease-glide) 0.06s both` — per-navigation page enter (`app/template.tsx`) |
+| `animate-blink` | `blink 1s steps(1) infinite` — the streaming-bio caret |
 
-Plugin: `tailwindcss-animate`. Theme transitions are disabled on toggle
-(`disableTransitionOnChange`).
+`--ease-glide` (`cubic-bezier(0.65, 0, 0.35, 1)`) is the shared easing token, exposed as
+`ease-glide`. Plugin: `tailwindcss-animate`. Theme transitions are disabled on toggle
+(`disableTransitionOnChange`). Motion is suppressed under `prefers-reduced-motion`
+(global CSS safety net in `globals.css`, plus `motion-reduce:` per component).
 
 ## Conventions
 
