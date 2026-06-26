@@ -5,6 +5,9 @@ export interface EducationDataType {
     badges?: string[];
     date: string;
     location?: string;
+    // Optional course detail, revealed under "Read more".
+    courses?: string;
+    profiles?: { label: string; value: string }[];
 }
 
 const data: EducationDataType[] = [
@@ -36,6 +39,18 @@ const data: EducationDataType[] = [
         ],
         date: "Sep 2023 - Aug 2025",
         location: "Braga, Portugal",
+        profiles: [
+            {
+                label: "Distributed Systems Courses",
+                value: "Paradigms of Distributed Systems | Large Scale Distributed Systems | Fault Tolerance",
+            },
+            {
+                label: "Software Engineering Courses",
+                value: "Mobile Software Development | SW Analysis, Transformation and Testing | Data Science for SW Engineers",
+            },
+        ],
+        courses:
+            "High Performance Computing, AI & ML, Cloud Applications and Services, Software Development, Network Services Engineering",
     },
     {
         institution: "Universidade do Minho",
@@ -56,6 +71,8 @@ const data: EducationDataType[] = [
         ],
         date: "2020 - 2023",
         location: "Braga, Portugal",
+        courses:
+            "Functional Programming, Imperative Programming, Object Oriented Programming, Algorithms and Complexity, Operating Systems, Distributed Systems, Databases, Computer Networks & Communications, Compilers & Language Parsers, Artificial Intelligence, Machine Learning",
     },
     {
         institution: "Universidade do Minho",
@@ -65,6 +82,8 @@ const data: EducationDataType[] = [
         ],
         date: "2019 - 2020",
         location: "Braga, Portugal",
+        courses:
+            "Calculus I, Calculus II, Linear Algebra, Material Science I, Material Science II, Technical Drawing, 3D Modelling/CAD",
     },
 ];
 
