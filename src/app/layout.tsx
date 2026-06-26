@@ -85,7 +85,7 @@ export default function RootLayout({
                                 </div>
                             </div>
                         </div>
-                        <div className="lg:mx-[25%] mb-10 ">
+                        <div className="lg:mx-[25%] -mt-4 md:mt-0 mb-2.5 md:mb-10 ">
                             <ProfileInfo />
                         </div>
                         <div className="mx-[10%] md:mx-[15%] lg:mx-[20%] mt-3 hidden md:block">
@@ -100,7 +100,7 @@ export default function RootLayout({
                         {children}
                     </main>
 
-                    <footer className="text-sm text-center my-5">
+                    <footer className="text-sm text-center mt-5 mb-10">
                         Made with <HeartFilledIcon className="inline-block" />{" "}
                         by{" "}
                         <a
