@@ -40,6 +40,12 @@ export default function EduWorkCard({
     const [expanded, setExpanded] = useState(false);
     const hasMore = (badges?.length ?? 0) > 0 || Boolean(customFields);
 
+    // Keep the external-link arrow glued to the last word so it never orphans
+    // onto its own line when the title wraps (notably on mobile).
+    const titleWords = title.trim().split(/\s+/);
+    const lastWord = titleWords.pop() ?? title;
+    const leadWords = titleWords.join(" ");
+
     return (
         <Card className="my-4 backdrop-blur-sm ">
             <CardHeader className="pb-3">
@@ -50,10 +56,16 @@ export default function EduWorkCard({
                                 href={titleHref}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group inline-flex items-end gap-1 underline-offset-4 hover:text-signal hover:underline"
+                                className="group underline-offset-4 hover:text-signal hover:underline"
                             >
-                                {title}
-                                <ArrowUpRight className="mb-1 h-4 w-4 text-muted-foreground group-hover:text-signal" />
+                                {leadWords && `${leadWords} `}
+                                <span className="whitespace-nowrap">
+                                    {lastWord}
+                                    <ArrowUpRight
+                                        aria-hidden
+                                        className="ml-0.5 inline-block h-3.5 w-3.5 -translate-y-px align-middle text-muted-foreground group-hover:text-signal"
+                                    />
+                                </span>
                             </a>
                         ) : (
                             title
