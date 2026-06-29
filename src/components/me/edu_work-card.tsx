@@ -82,7 +82,7 @@ export default function EduWorkCard({
                     </div>
                 </CardDescription>
             </CardHeader>
-            <CardContent className=" font-light text-sm	pb-5 leading-relaxed">
+            <CardContent className=" font-light text-sm	pb-5 leading-relaxed text-justify">
                 <ul className=" list-disc ">
                     {description.map((point, index) => (
                         <li key={index} className="ml-3.5 mb-1.5">
