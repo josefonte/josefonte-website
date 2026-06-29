@@ -143,7 +143,7 @@ export default function StreamingBio({
             return (
                 <p
                     key={paragraphIndex}
-                    className="mt-2 text-base leading-relaxed text-foreground/90"
+                    className="mt-2 text-base leading-relaxed text-foreground/90 text-justify"
                 >
                     {paragraph.tokens
                         .slice(0, visibleTokens)
@@ -200,7 +200,7 @@ export default function StreamingBio({
                         {section.paragraphs.map((paragraph, paragraphIndex) => (
                             <p
                                 key={paragraphIndex}
-                                className="mt-2 text-base leading-relaxed text-foreground/90"
+                                className="mt-2 text-base leading-relaxed text-foreground/90 text-justify"
                             >
                                 {paragraph.tokens.map(renderToken)}
                             </p>

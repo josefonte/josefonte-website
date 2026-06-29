@@ -106,7 +106,7 @@ export default function ButtonsNav() {
                 call to action */}
             <Button asChild variant="link" className={actionClass}>
                 <a
-                    href="/jose-fonte-cv.pdf"
+                    href="/josefonte-cv.pdf"
                     download
                     onClick={handleDownloadCv}
                 >

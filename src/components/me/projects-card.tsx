@@ -79,7 +79,7 @@ export default function ProjectsCard({
                     </div>
                 </CardDescription>
             </CardHeader>
-            <CardContent className=" font-light text-sm	pb-5 text-left mb-auto">
+            <CardContent className=" font-light text-sm	pb-5 text-justify mb-auto">
                 {description}
                 {customFields}
             </CardContent>
