@@ -211,7 +211,7 @@ export default function MobileNav() {
                 {/* Pulled out of the Contacts list so it reads as the shelf's
                     main call to action, mirroring the desktop top-corner action. */}
                 <a
-                    href="/jose-fonte-cv.pdf"
+                    href="/josefonte-cv.pdf"
                     download
                     onClick={handleDownloadCv}
                     className="flex items-center gap-3 rounded-md px-3 py-3 font-mono text-base transition-colors hover:bg-accent hover:text-signal"
